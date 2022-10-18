@@ -15,11 +15,13 @@ public function index(){
 }
     public function edit($id){
         $book=Book::find($id);
-        echo "BOOK EDIT FROM HERE";
+        return view('book.edit',[
+            'book'=>$book
+        ]);
     }
 
     public function show($id){
-        $book=Book::find($id);
+        $book=Book::findOrFail($id);
         return view('book.single',['book'=>$book]);
 
         //dd($book);

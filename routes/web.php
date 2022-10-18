@@ -53,4 +53,4 @@ Route::get('/book/{id}/edit',[BookController::class,'edit'])->name('book-edit');
 
 Route::post('/book/{id}',[BookController::class,'update'])->name('book-update');
 
-Route::get('/books',[BookController::class,'index']);
+Route::get('/books',[BookController::class,'index'])->name('book-listing');;
