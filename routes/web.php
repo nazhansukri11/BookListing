@@ -49,4 +49,8 @@ Route::resource('user',UserController::class);
 
 Route::get('/book/{id}',[BookController::class,'show'])->name('book-single');
 
+Route::get('/book/{id}/edit',[BookController::class,'edit'])->name('book-edit');
+
+Route::post('/book/{id}',[BookController::class,'update'])->name('book-update');
+
 Route::get('/books',[BookController::class,'index']);

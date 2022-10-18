@@ -13,6 +13,10 @@ public function index(){
         'books'=>$books
     ]);
 }
+    public function edit($id){
+        $book=Book::find($id);
+        echo "BOOK EDIT FROM HERE";
+    }
 
     public function show($id){
         $book=Book::find($id);

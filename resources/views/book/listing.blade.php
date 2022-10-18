@@ -11,6 +11,7 @@
                     <th>ID</th>
                     <th>TITLE</th>
                     <th>PRICE</th>
+                    <th>ACTION</th>
                 </thead>
                 <tbody>
                 @foreach($books as $book)
@@ -25,6 +26,8 @@
                         </td>
 
                         <td>RM {{$book->price}}</td>
+                        <th><a class="btn btn-sm btn-primary" href="{{route('book-edit',$book->id)}}">EDIT</a></th>
+
                     </tr>
                     @endforeach
                 </tbody>
