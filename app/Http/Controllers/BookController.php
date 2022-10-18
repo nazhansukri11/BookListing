@@ -15,9 +15,22 @@ public function index(){
 }
     public function edit($id){
         $book=Book::find($id);
+        
         return view('book.edit',[
             'book'=>$book
+            
         ]);
+    }
+
+    public function update(Request $request,$id){
+        $book=Book::findOrFail($id);
+        $book->title=$request->title;
+        $book->price=$request->price;
+        $book->synopsis=$request->synopsis;
+
+        $book->save();
+        return back()->with('success','Book has been updated');
+        // dd($request);
     }
 
     public function show($id){

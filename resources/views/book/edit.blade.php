@@ -4,6 +4,13 @@
 @section('content')
 
 <div class="row mt-5">
+
+    @if(session('success'))
+    <p class="alert alert-success">{{session('success')}}</p>
+    @endif
+
+    <form action="{{route('book-update',$book->id)}}" method="POST">
+    @csrf
     <div class="col">
     <a href="{{route('book-listing')}}">Back To Book Listing</a>
     <h4>Edit Book</h4>
@@ -28,6 +35,8 @@
 
 
     </div>
+    </form>
 </div>
+
 
 @endsection
