@@ -24,6 +24,13 @@ public function index(){
 
     public function update(Request $request,$id){
         $book=Book::findOrFail($id);
+
+        $validated_data=$request->validate([
+            'title'=>'required|min:5|max:255',
+            'price'=>'required|numeric',
+            'synopsis'=>'required|min:20|max:1000'
+        ]);
+
         $book->title=$request->title;
         $book->price=$request->price;
         $book->synopsis=$request->synopsis;
