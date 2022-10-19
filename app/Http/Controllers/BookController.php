@@ -40,6 +40,20 @@ public function index(){
         // dd($request);
     }
 
+    public function create(){
+        return view('book.create');
+    }
+
+    public function store(Request $request){
+        // dd($request);
+        $book=Book::create([
+            'title'=>$request->title,
+            'price'=>$request->price,
+            'synopsis'=>$request->synopsis,
+        ]);
+        return redirect()->route('book-listing');
+    }
+
     public function show($id){
         $book=Book::findOrFail($id);
         return view('book.single',['book'=>$book]);
