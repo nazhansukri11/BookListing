@@ -55,6 +55,8 @@ Route::get('/book/{id}/edit',[BookController::class,'edit'])->name('book-edit');
 
 Route::post('/book/{id}',[BookController::class,'update'])->name('book-update');
 
+Route::delete('/book/{id}',[BookController::class,'destroy'])->name('book-destroy');
+
 Route::get('/books',[BookController::class,'index'])->name('book-listing');
 
 Route::post('/book',[BookController::class,'store'])->name('book-store');

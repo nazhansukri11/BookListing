@@ -32,8 +32,16 @@
                         </td>
 
                         <td>RM {{$book->price}}</td>
-                        <th><a class="btn btn-sm btn-primary" href="{{route('book-edit',$book->id)}}">EDIT</a></th>
-
+                        <td>
+                        <a class="btn btn-sm btn-primary" href="{{route('book-edit',$book->id)}}">EDIT</a>
+                        <form action="{{route('book-destroy',$book->id)}}" method="POST" 
+                        class="d-inline"
+                        onsubmit="return confirm('Are you sure you want to delte book titled {{$book->title}}')">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
+                        </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

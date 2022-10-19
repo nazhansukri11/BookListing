@@ -55,6 +55,12 @@ public function index(){
         return redirect()->route('book-listing')->with('success','You book has been added');
     }
 
+    public function destroy($id){
+        $book=Book::findOrFail($id);
+        $book->delete();
+    
+    return redirect()->route('book-listing')->with('success','You book has been deleted');
+}
     public function show($id){
         $book=Book::findOrFail($id);
         return view('book.single',['book'=>$book]);
