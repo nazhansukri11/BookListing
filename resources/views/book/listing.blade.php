@@ -5,7 +5,9 @@
 
     <div class="row mt-5 mb-5">
         <div class="col">
-
+            @if(session('success'))
+            <p class="alert alert-success">{{session('success')}}</p>
+            @endif
 
             <h3>Book Listing</h3>
 

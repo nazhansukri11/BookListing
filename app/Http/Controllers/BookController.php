@@ -45,13 +45,14 @@ public function index(){
     }
 
     public function store(Request $request){
-        // dd($request);
-        $book=Book::create([
-            'title'=>$request->title,
-            'price'=>$request->price,
-            'synopsis'=>$request->synopsis,
+        $validated_data=$request->validate([
+            'title'=>'required|min:5|max:255',
+            'price'=>'required|numeric',
+            'synopsis'=>'required|min:20|max:1000'
         ]);
-        return redirect()->route('book-listing');
+        // dd($request);
+        $book=Book::create($validated_data);
+        return redirect()->route('book-listing')->with('success','You book has been added');
     }
 
     public function show($id){

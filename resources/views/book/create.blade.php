@@ -19,7 +19,7 @@
    
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
-    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="">
+    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{old('title')}}">
     @error('title')
     <div class="invalid-feedback">{{$message}}</div>
     @enderror
@@ -27,7 +27,7 @@
 
   <div class="mb-3">
     <label for="price" class="form-label">Price</label>
-    <input type="text" class="form-control @error('price') is-invalid @enderror" id="title" name="price" value="">
+    <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{old('price')}}">
     @error('price')
     <div class="invalid-feedback">{{$message}}</div>
     @enderror
@@ -36,7 +36,7 @@
 
   <div class="mb-3">
     <label for="synopsis" class="form-label">Synopsis</label>
-    <textarea name="synopsis" id="synopsis"  class="form-control @error('synopsis') is-invalid" @enderror rows="10" value=""></textarea>
+    <textarea name="synopsis" id="synopsis"  class="form-control @error('synopsis') is-invalid" @enderror rows="10" value="{{old('synopsis')}}"></textarea>
     @error('synopsis')
     <div class="invalid-feedback">{{$message}}</div>
     @enderror
