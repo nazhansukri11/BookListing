@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
 public function index(){
-    $books=Book::select(['id','title','price'])->paginate(10);
+    $books=Book::select(['id','title','price','author_id'])->paginate(10);
     return view('book.listing',[
         'books'=>$books
     ]);

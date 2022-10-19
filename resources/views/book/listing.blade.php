@@ -32,8 +32,10 @@
                         
                             </a>
                         </td>
-                        <td>John Doe</td>
+
+                        <td>{{$book->author->name}}</td>
                         <td>RM {{$book->price}}</td>
+
                         <td>
                         <a class="btn btn-sm btn-primary" href="{{route('book-edit',$book->id)}}">EDIT</a>
                         <form action="{{route('book-destroy',$book->id)}}" method="POST" 
